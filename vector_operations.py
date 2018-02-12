@@ -138,11 +138,12 @@ def local_cs(Z_bar):
     
     return X_bar_unit, Y_bar_unit, Z_bar_unit
 
-def grad_Fs(axis, ax_length):
+def grad_Fs(axis):
     """
-    
+    Calculates the gradient 
         
     """
-
+    t1 = np.gradient(axis[:,:])[0]
+    dFds = np.array([t1[i, :] / np.linalg.norm(t1[i, :]) for i in range(t1.shape[0])])
     
     return dFds
